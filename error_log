@@ -1,0 +1,52 @@
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/main/java/com/ata/Cart
+.java:25: error: cannot find symbol                                                                
+        System.out.println(String.format("Item Count: %d", items.length.toString));                
+                                                                ^                                  
+  symbol:   variable length                                                                        
+  location: variable items of type ArrayList                                                       
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/main/java/com/ata/Cart
+.java:28: error: cannot find symbol                                                                
+        for(ArrayList items : item){                                                               
+                              ^                                                                    
+  symbol:   variable item                                                                          
+  location: class Cart                                                                             
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/main/java/com/ata/Cart
+.java:28: error: variable items is already defined in method showDetails(ArrayList)                
+        for(ArrayList items : item){                                                               
+                      ^                
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:29: error: cannot find symbol                                                                
+            System.out.println(String.format("%s : $%.2f",item.getName(), item.g                   
+                                                          ^                                        
+  symbol:   variable item                                                                          
+  location: class Cart                                                                             
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:29: error: cannot find symbol                                                                
+            System.out.println(String.format("%s : $%.2f",item.getName(), item.g                   
+                                                                          ^                        
+  symbol:   variable item                                                                          
+  location: class Cart                                                                             
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:30: error: double cannot be dereferenced                                                     
+            total.addPrice(item.getPrice());                                                       
+                 ^                                                                                 
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:30: error: cannot find symbol                                                                
+            total.addPrice(item.getPrice());   
+
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:30: error: cannot find symbol                                                                
+            total.addPrice(item.getPrice());                                                       
+                           ^                                                                       
+  symbol:   variable item                                                                          
+  location: class Cart                                                                             
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:46: error: 'void' type not allowed here                                                      
+                System.out.println(shop.printProducts());                                          
+                                                     ^                                             
+/mnt/vocwork5/ddd_v1_w_z12_1452364/asn1074847_25/asn1165913_2/work/local/src/mai                   
+.java:51: error: cannot find symbol                                                                
+                    cart.addItem(shop.getProductName(itemID));                                     
+                    ^                                                                              
+  symbol:   variable cart                                                                          
+  location: class Menu                                                                             
