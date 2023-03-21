@@ -21,11 +21,11 @@ public class ShopRunner {
     public static void main(@Nullable String[] args) {
         Product[] productArr;
         productArr = new Product[5];
-        productArr[0] = new Product("Crew Neck", 20);
-        productArr[1] = new Product("V-Neck", 11);
-        productArr[2] = new Product("Polo", 12);
-        productArr[3] = new Product("Boat Neck",13);
-        productArr[4] = new Product("Tank Top", 14;
+        productArr[0] = new Product(1,"Crew Neck", 20);
+        productArr[1] = new Product(2,"V-Neck", 11);
+        productArr[2] = new Product(3,"Polo", 12);
+        productArr[3] = new Product(4,"Boat Neck",13);
+        productArr[4] = new Product(5,"Tank Top", 14);
 
 
         Menu menu = new Menu(

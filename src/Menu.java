@@ -65,6 +65,8 @@ public class Menu {
                     printMenu();
                 }
 
+            } else if (o ==4) {
+                System.out.println("The cart is empty. Please add at least one product to see it in the cart.");
             }
 
             o = getNextIntFromUser();

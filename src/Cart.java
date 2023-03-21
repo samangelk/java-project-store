@@ -9,7 +9,8 @@ public class Cart {
 
 
     public ArrayList addItem(Product p){
-        items.add(p.getName());
+        Product newProduct = new Product(p.getID(), p.getName(), p.getPrice());
+        items.add(newProduct);
         return items;
     }
 
@@ -23,7 +24,14 @@ public class Cart {
     public void showDetails(Product p){
         System.out.println("Item Count: " + items.length.toString);
         System.out.println("Items:");
+        total = 0;
+        for(Product items : item){
+            System.out.println(String.format("%s : $%.2f",item.getName(), item.getPrice()));
+            total.addPrice(item.getPrice());
+        }
 
+        System.out.println(String.format("Pre-Tax Total: $%.2f", total));
+        System.out.println(String.format("Post-Tax Total (10.00% Tax): $%.2f", total*0.9));
     }
 
 }
