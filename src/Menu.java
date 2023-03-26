@@ -2,14 +2,6 @@ package com.ata;
 
 import java.util.Scanner;
 
-/**
- * Menu class is responsible for greeting the user, showing a menu
- * to the user for interaction with the application.
- * The class maintains a String[] array of menu options, which it
- * uses for printing the menu to standard out.
- * The class is also responsible for responding to user interaction
- * with respect to its menu.
- */
 public class Menu {
     private String[] menuOptions = {"Exit", "List Products", "Buy Product", "Find Product", "Show Cart", "Checkout"};
 
@@ -17,24 +9,11 @@ public class Menu {
     private Cart cart = new Cart();
     private Scanner scanner;
 
-    /**
-     * Class constructor, which expects a Scanner object
-     * It allows for the user to specify how a Scanner is to
-     * be configured outside this class and for basic inversion of control.
-     * @param scanner takes in a Scanner object to initialize
-     */
     public Menu(Scanner scanner, Shop shop) {
         this.scanner = scanner;
         this.shop = shop;
     }
 
-
-    /**
-     * Prints the menu to standard output, using the class's menuOptions array.
-     * It accepts user input using the encapsulated Scanner instance.
-     * All output is printed to standard out.
-     * All input is collected from standard in.
-     */
     public void executeMenu() {
         printMenu();
         int o = getNextIntFromUser();
@@ -48,18 +27,19 @@ public class Menu {
                 System.out.println("Please enter the ID of the product you would like to purchase:");
                 int itemID = getNextIntFromUser();
                 // get Product from ID
-                if (shop.getProductName(itemID) != null){
-                    cart.addItem(shop.getProductName(itemID));
-                    System.out.println(shop.getProductName(itemID) + " has been added to your cart.");
+                if (shop.getProduct(itemID) != null){
+                    cart.addItem(shop.getProduct(itemID));
+                    System.out.println(shop.getProduct(itemID).getName() + " has been added to your cart.");
                 } else {
                     System.out.println("That item ID is invalid and could not be added to the cart.");
                 }
+                printMenu();
             } else if (o == 3) {
                 System.out.println("Enter the item to search for:");
                 String itemToFind = getNextStringLineFromUser();
                 int productID = shop.findProduct(itemToFind);
                 if (productID > -1) {
-                    System.out.println(shop.getProductName(productID) + " was found and its product id is " + productID);
+                    System.out.println(shop.getProduct(productID) + " was found and its product id is " + productID);
                     printMenu();
                 } else {
                     System.out.println("That product was not found.");
@@ -67,15 +47,23 @@ public class Menu {
                 }
 
             } else if (o ==4) {
-                System.out.println("The cart is empty. Please add at least one product to see it in the cart.");
+                if (cart.getCartSize() == 0) {
+                    System.out.println("The cart is empty. Please add at least one product to see it in the cart.");
+                } else {
+                    cart.showDetails();
+                }
+                printMenu();
+            } else {
+                cart.checkout();
+                printMenu();
             }
 
             o = getNextIntFromUser();
         }
 
-        // handleShopperMenuOptionSelection();
         exit();
     }
+
 
 
     /**
@@ -86,7 +74,6 @@ public class Menu {
         System.out.println("Hello. Please enter your name:");
         String name = scanner.nextLine();
         String shopName = shop.getName();
-
         System.out.println("Welcome " + name + " to " + shopName);
     }
 

@@ -18,7 +18,7 @@ public class Shop {
         }
     }
 
-    public Product getProductName(int id) {
+    public Product getProduct(int id) {
         return products.get(id);
     }
 

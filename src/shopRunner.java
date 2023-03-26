@@ -19,7 +19,7 @@ public class ShopRunner {
      * Asks the menu to be shown by calling its show method.
      * @param args Command line arguments to the application
      */
-    public static void main(@Nullable ArrayList<Product> args) {
+    public static void main(String[] args) {
         ArrayList<Product> productArr = new ArrayList<>();
 
         productArr.add(new Product(0,"Crew Neck", 20));
