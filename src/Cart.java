@@ -5,33 +5,30 @@ import java.util.ArrayList;
 public class Cart {
     private ArrayList<Product> items = new ArrayList<>();
     private double total;
-    private double taxRate;
+    private double taxRate = 0.1;
 
 
-    public ArrayList addItem(Product p){
-        Product newProduct = new Product(p.getID(), p.getName(), p.getPrice());
-        items.add(newProduct);
-        return items;
+    public void addItem(Product p){
+        items.add(p);
     }
 
-    public double addPrice(Product p){
+    public void addPrice(Product p){
         total += p.getPrice();
-        return total;
     }
 //It should be called when the shopper selects option 4 in the menu and should print
 // the total pre-tax cost of all the items in the cart and the cart items themselves.
 // It should also display the after tax cost on a separate line.
-    public void showDetails(ArrayList items){
-        System.out.println(String.format("Item Count: %d", items.length.toString));
+    public void showDetails(ArrayList<Product> items){
+        System.out.println(String.format("Item Count: %d", items.size()));
         System.out.println("Items:");
         total = 0;
-        for(ArrayList items : item){
+        for(Product item : items){
             System.out.println(String.format("%s : $%.2f",item.getName(), item.getPrice()));
-            total.addPrice(item.getPrice());
+            addPrice(item);
         }
 
         System.out.println(String.format("Pre-Tax Total: $%.2f", total));
-        System.out.println(String.format("Post-Tax Total (10.00% Tax): $%.2f", total*0.9));
+        System.out.println(String.format("Post-Tax Total (10.00% Tax): $%.2f", total*(1- taxRate)));
     }
 
 }

@@ -2,6 +2,7 @@ package com.ata;
 
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.annotation.Nullable;
 
@@ -18,19 +19,19 @@ public class ShopRunner {
      * Asks the menu to be shown by calling its show method.
      * @param args Command line arguments to the application
      */
-    public static void main(@Nullable String[] args) {
-        Product[] productArr;
-        productArr = new Product[5];
-        productArr[0] = new Product(1,"Crew Neck", 20);
-        productArr[1] = new Product(2,"V-Neck", 11);
-        productArr[2] = new Product(3,"Polo", 12);
-        productArr[3] = new Product(4,"Boat Neck",13);
-        productArr[4] = new Product(5,"Tank Top", 14);
+    public static void main(@Nullable ArrayList<Product> args) {
+        ArrayList<Product> productArr = new ArrayList<>();
+
+        productArr.add(new Product(0,"Crew Neck", 20));
+        productArr.add(new Product(1,"V-Neck", 11));
+        productArr.add(new Product(2,"Polo", 12));
+        productArr.add(new Product(3,"Boat Neck",13));
+        productArr.add(new Product(4,"Tank Top", 14));
 
 
         Menu menu = new Menu(
                 new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8"))),
-                new Shop(productArr)
+                new Shop("T-Shirt Mart", productArr)
         );
 
         menu.greet();

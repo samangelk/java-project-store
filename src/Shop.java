@@ -1,24 +1,35 @@
 package com.ata;
+
+import java.util.ArrayList;
+
 public class Shop {
-    private Product[] products ;
-    public Shop(Product[] products) {
+    private ArrayList<Product> products = new ArrayList<>();
+    private String name;
+    private Cart cart;
+    public Shop(String name, ArrayList<Product> products) {
+        this.name = name;
         this.products  = products;
-    };
+    }
+
     public void printProducts() {
         System.out.println("--Products--");
-        for (int i = 0; i < products.length; i++) {
-            System.out.println("ID " + String.valueOf(i) + ": " + products[i].getName() + " - $" + products[i].getPrice());
+        for (Product p : products) {
+            System.out.println("ID " + p.getID() + ": " + p.getName() + " - $" + p.getPrice());
         }
     }
 
-    public String getProductName(int id) {
-        return products[id].getName();
+    public Product getProductName(int id) {
+        return products.get(id);
     }
 
+   // get shop name
+    public String getName(){
+        return name;
+    }
     public int findProduct(String searchText) {
         int id = 0;
-        for (int i = 0; i < products.length; i++) {
-            if (searchText.equals(products[i].getName())) {
+        for (int i = 0; i < products.size(); i++) {
+            if (searchText.equals(products.get(i).getName())) {
                 id = i;
                 break;
             } else {

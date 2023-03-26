@@ -14,6 +14,7 @@ public class Menu {
     private String[] menuOptions = {"Exit", "List Products", "Buy Product", "Find Product", "Show Cart", "Checkout"};
 
     private Shop shop;
+    private Cart cart = new Cart();
     private Scanner scanner;
 
     /**
@@ -43,7 +44,7 @@ public class Menu {
                 shop.printProducts();
                 printMenu();
             } else if (o == 2) {
-                System.out.println(shop.printProducts());
+                shop.printProducts();
                 System.out.println("Please enter the ID of the product you would like to purchase:");
                 int itemID = getNextIntFromUser();
                 // get Product from ID
@@ -84,7 +85,7 @@ public class Menu {
     public void greet() {
         System.out.println("Hello. Please enter your name:");
         String name = scanner.nextLine();
-        String shopName = "T-Shirt Mart";
+        String shopName = shop.getName();
 
         System.out.println("Welcome " + name + " to " + shopName);
     }
