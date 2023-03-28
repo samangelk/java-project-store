@@ -39,7 +39,7 @@ public class Menu {
                 String itemToFind = getNextStringLineFromUser();
                 int productID = shop.findProduct(itemToFind);
                 if (productID > -1) {
-                    System.out.println(shop.getProduct(productID) + " was found and its product id is " + productID);
+                    System.out.println(shop.getProduct(productID).getName() + " was found and its product id is " + productID);
                     printMenu();
                 } else {
                     System.out.println("That product was not found.");

@@ -21,6 +21,7 @@ public class Shop {
     public Product getProduct(int id) {
         return products.get(id);
     }
+
     public int getProductSize() {
         return products.size();
     }
