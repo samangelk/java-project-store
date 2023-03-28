@@ -8,6 +8,7 @@ public class Cart {
     private double taxRate = 0.1;
 
 
+
     public void addItem(Product p){
         items.add(p);
     }
@@ -23,16 +24,17 @@ public class Cart {
 // the total pre-tax cost of all the items in the cart and the cart items themselves.
 // It should also display the after tax cost on a separate line.
     public void showDetails() {
-        System.out.println(String.format("Item Count: %d", items.size()));
+        System.out.println(String.format("--Cart--%nItem Count: %d", items.size()));
         System.out.println("Items:");
         total = 0;
         for (Product item : items) {
-            System.out.println(String.format("%s : $%.2f", item.getName(), item.getPrice()));
+            System.out.println(String.format("%s: $%.2f", item.getName(), item.getPrice()));
             addPrice(item);
         }
 
-        System.out.println(String.format("Pre-Tax Total: $%.2f", total));
-        System.out.println(String.format("Post-Tax Total (10.00% Tax): $%.2f", total * (1 - taxRate)));
+        System.out.println(String.format("%nPre-Tax Total: $%.2f", total));
+        double afterTaxTotal = total * (1-taxRate);
+        System.out.println(String.format("Post-Tax Total (10.00%% Tax): $%.2f", afterTaxTotal));
     }
 
     private void emptyCart(){

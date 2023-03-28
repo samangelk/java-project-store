@@ -23,11 +23,11 @@ public class Menu {
                 shop.printProducts();
                 printMenu();
             } else if (o == 2) {
-                shop.printProducts();
+
                 System.out.println("Please enter the ID of the product you would like to purchase:");
                 int itemID = getNextIntFromUser();
                 // get Product from ID
-                if (shop.getProduct(itemID) != null){
+                if (itemID < shop.getProductSize()){
                     cart.addItem(shop.getProduct(itemID));
                     System.out.println(shop.getProduct(itemID).getName() + " has been added to your cart.");
                 } else {
@@ -54,7 +54,12 @@ public class Menu {
                 }
                 printMenu();
             } else {
-                cart.checkout();
+                if (cart.getCartSize() == 0) {
+                    System.out.println("Your cart is currently empty. Please add at least one product to check out.");
+
+                } else {
+                    cart.checkout();
+                }
                 printMenu();
             }
 
